@@ -7,18 +7,24 @@
                 <br>
                 <input class="right"
                        type="text"
+                       ref="name"
+                       :class="{ 'has-error': submitting && invalidEventName}"
                        v-model="eventName"
-                       name="name"
-                       placeholder="esim. Kalaretki">
+                       @focus="clearStatus"
+                       @keypress="clearStatus"
+                       placeholder="esim. Kalaretki"
+                />
             </div>
             <div class="formSlot">
                 <label class="left">Tapahtuman sijainti</label>
                 <br>
                 <input class="right"
                        type="text"
+                       :class="{ 'has-error': submitting && invalidEventLocation}"
                        v-model="eventLocation"
-                       name="location"
-                       placeholder="esim. Järvenpää">
+                       @focus="clearStatus"
+                       placeholder="esim. Järvenpää"
+                />
             </div>
             <div class="formSlot">
                 <label class="left">Tapahtuma alkaa </label>
@@ -26,7 +32,7 @@
                 <input class="right"
                        type="date"
                        v-model="eventStart"
-                       name="timeStart" >
+                />
             </div>
             <div class="formSlot">
                 <label class="left">Tapahtuma loppuu</label>
@@ -34,8 +40,12 @@
                 <input class="right"
                        type="date"
                        v-model="eventEnd"
-                       name="timeEnd">
+                />
             </div>
+            <p v-if="error && submitting" class="error-message">
+                Ole hyvä ja täytä kaikki kentät!
+            </p>
+            <p v-if="success" class="success-message">Tiedot lähetetty!</p>
             <button>Tallenna</button>
 
         </form>
@@ -48,6 +58,15 @@
     name: 'AddEvent',
     methods: {
       handleSubmit() {
+        this.submitting = true;
+        this.clearStatus();
+
+        if (this.invalidEventName || this.invalidEventLocation || this.invalidEventStart || this.invalidEventEnd) {
+          console.log("joku tyhjä");
+          this.error = true;
+          return;
+        }
+
         let newEvent = {
           name: capitalize(this.eventName),
           location: capitalize(this.eventLocation),
@@ -57,20 +76,49 @@
         };
         console.log(newEvent);
         this.method(newEvent);
+        this.eventName = '';
+        this.eventLocation = '';
+        this.eventStart = '';
+        this.eventEnd = '';
+        this.error = false;
+        this.$refs.name.focus();
+        this.success = true;
+        this.submitting = false;
+      },
+      clearStatus() {
+        this.success = false;
+        this.error = false;
       },
     },
     data() {
       return {
-        eventName: null,
-        eventLocation: null,
-        eventStart: null,
-        eventEnd: null,
+        submitting: false,
+        error: false,
+        success: false,
+        eventName: '',
+        eventLocation: '',
+        eventStart: '',
+        eventEnd: '',
         newEvent: {},
       }
     },
     props: {
       items: Array,
       method: { type: Function }
+    },
+    computed: {
+      invalidEventName() {
+        return this.eventName.trim() === "" || this.eventName.length < 5;
+      },
+      invalidEventLocation() {
+        return this.eventLocation.trim() === "" || this.eventLocation.length < 3;
+      },
+      invalidEventStart() {
+        return this.eventStart === '' || stringToDate(this.eventStart) < Date.now();
+      },
+      invalidEventEnd() {
+        return this.eventEnd === '' || stringToDate(this.eventEnd) < stringToDate(this.eventStart) ;
+      }
     }
   };
 
@@ -81,6 +129,10 @@
     .join(' ');
   };
 
+  const stringToDate = (s) => {
+    return new Date(s);
+  };
+
   const fixDates = (string) => {
     let from = string.split("-");
     return `${from[2]}.${from[1]}.${from[0]}`;
@@ -89,7 +141,17 @@
 </script>
 
 <style scoped>
+    [class*='-message'] {
+        font-weight: 500;
+    }
 
+    .error-message {
+        color: darkred;
+    }
+
+    .success-message {
+        color: seagreen;
+    }
 
     .formSlot {
         margin: 5px;

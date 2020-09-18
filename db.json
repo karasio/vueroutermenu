@@ -83,6 +83,104 @@
       "dateStart": "21.10.2020",
       "dateEnd": "22.10.2020",
       "id": 12
+    },
+    {
+      "name": "Kalaretki",
+      "location": "Järvenpää",
+      "dateStart": "14.09.2020",
+      "dateEnd": "14.09.2020",
+      "id": 13
+    },
+    {
+      "name": "Kissojen Illat",
+      "location": "Korkeasaari, Helsinki",
+      "dateStart": "17.09.2020",
+      "dateEnd": "17.09.2020",
+      "id": 14
+    },
+    {
+      "name": " Pekka Toivonen Piano Week 2020",
+      "location": "Vanhakirkko, Lönnrotinkatu 6, Helsinki",
+      "dateStart": "18.09.2020",
+      "dateEnd": "18.09.2020",
+      "id": 15
+    },
+    {
+      "name": "Kissa",
+      "location": "Kissa",
+      "dateStart": "18.09.2020",
+      "dateEnd": "18.09.2020",
+      "id": 16
+    },
+    {
+      "name": "Sateenkaarihyllyn Lukupiiri: Riikka Ala-harjan \"en Saab\"",
+      "location": "Kallion Kirjasto, Helsinki",
+      "dateStart": "20.09.2020",
+      "dateEnd": "20.09.2020",
+      "id": 17
+    },
+    {
+      "name": "Kummituskävely: Puistokatujen Kummitukset",
+      "location": "Kaupunginmuseo, Helsinki",
+      "dateStart": "19.09.2020",
+      "dateEnd": "19.09.2020",
+      "id": 18
+    },
+    {
+      "name": "Valtteri Kivelä: The Big Game Is Every Night",
+      "location": "Tiketti Galleria",
+      "dateStart": "21.09.2020",
+      "dateEnd": "27.09.2020",
+      "id": 19
+    },
+    {
+      "name": "Leap Of Faith: William Friedkin On The Exorcist (2019) – 33. Helsinki International Film Festival – Rakkautta & Anarkiaa",
+      "location": "Savoy-teatteri",
+      "dateStart": "20.09.2020",
+      "dateEnd": "20.09.2020",
+      "id": 20
+    },
+    {
+      "name": "Trubaduuri",
+      "location": "Suomen Kansallisooppera Ja -baletti",
+      "dateStart": "24.09.2020",
+      "dateEnd": "24.09.2020",
+      "id": 21
+    },
+    {
+      "name": "Kissa",
+      "location": "Kissa",
+      "dateStart": "30.09.2020",
+      "dateEnd": "30.09.2020",
+      "id": 22
+    },
+    {
+      "name": "Kissa",
+      "location": "Kissa",
+      "dateStart": "30.09.2020",
+      "dateEnd": "30.09.2020",
+      "id": 23
+    },
+    {
+      "name": "Syöpäsi Minussa - Ensi-ilta – Ismo Dance Company",
+      "location": "Caisa",
+      "dateStart": "22.09.2020",
+      "dateEnd": "22.09.2020",
+      "id": 24
+    },
+    {
+      "name": "Rytmiranta - Musiikkituokio",
+      "location": "Leikkipuisto Arabia",
+      "dateStart": "24.09.2020",
+      "dateEnd": "24.09.2020",
+      "id": 25
+    },
+    {
+      "name": "Poika",
+      "location": "Kom-teatteri",
+      "dateStart": "10.10.2020",
+      "dateEnd": "10.10.2020",
+      "id": 26
     }
   ]
 }
